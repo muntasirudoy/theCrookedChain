@@ -11,7 +11,7 @@ function Navbar({children, textOpen, textMenu, textClose, hamburger}) {
     const nav = useRef(null);
     const [typeNave, setTypeNave] = useState("");
     const [reserved, setReserved] = useState(false);
-
+    const [scrolled, setScrolled] = useState(false);
 
     const removeOpenMenu = useCallback(() => {
         nav.current.querySelectorAll('ul').forEach(item => item.classList.remove('open'));
@@ -39,10 +39,7 @@ function Navbar({children, textOpen, textMenu, textClose, hamburger}) {
 
 
 
-    // only runs after first render
     useEffect(() => {
-
-
         if (!hamburger) {
             window.addEventListener('resize', resizeNav);
             resizeNav();
@@ -51,24 +48,25 @@ function Navbar({children, textOpen, textMenu, textClose, hamburger}) {
         }
 
         cutterElement();
-
-
             gsap.to(nav.current, {opacity:1 , delay : 1});
-
-
-
 
         return () => {
             window.removeEventListener('resize', resizeNav);
-
         }
 
 
     }, [hamburger]);// eslint-disable-line react-hooks/exhaustive-deps
 
+
+
+      
+
+    
     return (
 
-        <header id="site_menu_header" className={dsnCN('site-header dsn-container ', typeNave)} ref={nav} style={{opacity:0}}>
+        <header id="site_menu_header" className={dsnCN('site-header dsn-container ', typeNave)} ref={nav} style={{opacity:0}}
+
+        >
 
             {children}
 

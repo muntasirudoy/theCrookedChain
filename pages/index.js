@@ -30,8 +30,8 @@ import fetch from "node-fetch";
 
 
 
-export const getStaticProps = async () => {
-      const res = await fetch('https://crooked-7kzx.onrender.com/api/landing-abouts');
+export const getServerSideProps = async () => {
+      const res = await fetch('https://crooked-7kzx.onrender.com/api/landing-abouts?populate=*');
       const data = await res.json()
 return{
     props:{

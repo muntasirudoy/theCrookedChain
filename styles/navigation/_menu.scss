@@ -8,8 +8,10 @@
   transition-property: background-color, padding-top, padding-bottom, transform;
   transition-duration: 0.5s;
   z-index: 97;
-background: rgba(0, 0, 0, 0.205);
+background: 00000063;
 // backdrop-filter: blur(30px);
+
+
   > .p-relative.dsn-container {
     padding: 0;
     display: flex;
@@ -166,5 +168,20 @@ background: rgba(0, 0, 0, 0.205);
         }
       }
     }
+  }
+}
+.main_menu{
+  display: flex;
+  gap: 20px;
+}
+@media (min-width:320px) and (max-width:575px) {
+  .site-header{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: BLACK;
+    border-bottom: 1px solid rgb(51, 51, 51);
+  }
+  .main_menu{
+    display: none;
   }
 }

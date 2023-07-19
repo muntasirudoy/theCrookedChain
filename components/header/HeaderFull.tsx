@@ -50,7 +50,7 @@ function HeaderFull({
     const animateText = useRef();
     const q = gsap.utils.selector(header);
     const {category, title, src, video, subtitle} = heroContent;
-
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         gsap.fromTo(q('.post-info span'), {y: -15, autoAlpha: 0}, {y: 0, autoAlpha: 1, stagger: 0.1});
@@ -81,9 +81,8 @@ function HeaderFull({
 
     return (
         <header
-             style={{background:"red"}}
             className={dsnCN("header-page overflow", ((src || video) && !skin ) && 'v-dark-head', skin, skin && "v-dark-head-mobile" , fullWidth && "full-width") }
-            ref={header}>
+            ref={header} >
 
             {/*@ts-ignore*/}
             {src && <BgImage src={src} height={height} alt={title?.replace(/<[^>]+>/g, '') ?? ""} overlay={overlay}

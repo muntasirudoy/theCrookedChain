@@ -27,12 +27,16 @@ const HeroContent = {
 
 function HeroSection({className,data, ...restProps}) {
 
-   data.data?.map((e)=>{
-    HeroContent.title = e.attributes.title
-    HeroContent.subtitle = e.attributes.subtitle
-    console.log(e)
-   })
-
+    data.data?.map((e)=>{
+        HeroContent.title = e.attributes.title
+        HeroContent.subtitle = e.attributes.subtitle
+        HeroContent.description =e.attributes.description
+        HeroContent.authorTitle= "SALVADOR DALI"
+        HeroContent.authorJob= "Digital Artisit"
+        HeroContent.experienceNumber= "25"
+        HeroContent.experienceDescription= `YEARS OF \nDIGITAL EXPERIENCE`
+        HeroContent.heroImage= '/img/about/about.webp'
+       })
     return (
         <section className={dsnCN(`about-section p-relative`, className)} {...restProps}>
             <DsnGrid col={2} colTablet={1} colGap={50} rowGap={40}>
