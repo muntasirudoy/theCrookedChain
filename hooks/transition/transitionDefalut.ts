@@ -30,7 +30,7 @@ export function tdStart(transitionPage: transitionPage): [HTMLDivElement, gsap.c
             overwrite: false,
             duration: 1.5
         }, 0)
-        .to("#dsn-scrollbar", {y: -400, duration: 1}, "-=1.2");
+        .to("#dsn-scrollbar", {y: -400, duration: .5}, "-=1.2");
 
 
     return [domTransition, tl];

@@ -5,6 +5,7 @@ import InfoBox from "../contact/InfoBox";
 import React from "react";
 
 function ModalContact({className = "", ...restProps}) {
+    console.log(className);
     return (
         <div className={dsnCN("section-padding", className)} {...restProps}>
             <DsnGrid col={2} colTablet={1}>

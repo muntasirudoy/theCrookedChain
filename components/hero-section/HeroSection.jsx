@@ -9,7 +9,7 @@ import Button from '../button/Button';
 
 
 const HeroContent = {
-    title: "Hello we, are <br/> TheCrookedChain",
+    title: "Hello we, are <br/> The <br/>Crooked<br/>Chain",
     subtitle: `We’re a creative agency with an expertise in make custom websites.`,
     description: `Founded in 2000, Dsn Grid has become one of the best Digital Agency in Themeforest. <span class="mb-10 d-block" ></span>
      Blue money going forward, but deploy to production. First-order optimal strategies build on a culture of contribution and inclusion so those options`,
@@ -25,7 +25,7 @@ const HeroContent = {
 };
 
 
-function HeroSection({className,data, ...restProps}) {
+function  HeroSection({className,data, ...restProps}) {
 
     data.data?.map((e)=>{
         HeroContent.title = e.attributes.title
@@ -41,6 +41,7 @@ function HeroSection({className,data, ...restProps}) {
         <section className={dsnCN(`about-section p-relative`, className)} {...restProps}>
             <DsnGrid col={2} colTablet={1} colGap={50} rowGap={40}>
                 <div className="box-info pt-60 pb-60">
+
                     <MoveTrigger from={{y: 0}} to={{y: -70}} tablet={false} mobile={false}>
                         {(ref) => <h2 className="section-title title-move mb-30 "
                                       dangerouslySetInnerHTML={{__html: HeroContent.title}} ref={ref}/>}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import SliderPortfolio from "../components/slider-portfolio/SliderPortfolio";
 import HeroSection from "../components/hero-section/HeroSection";
@@ -30,22 +30,38 @@ import fetch from "node-fetch";
 
 
 
-export const getServerSideProps = async () => {
-      const res = await fetch('https://crooked-7kzx.onrender.com/api/landing-abouts?populate=*');
-      const data = await res.json()
-return{
-    props:{
-        contact :data
+
+export async function getStaticProps() {
+    const res = await fetch('https://crooked-7kzx.onrender.com/api/landing-abouts?populate=*')
+    const blogRes = await fetch("http://localhost:1337/api/blogs");
+    const blogData = await blogRes.json();
+    const data = await res.json()
+
+   
+    return {
+        props:{
+            contact :data,
+            blogs: blogData,
+        },
+      revalidate: 10,
     }
-}
-}
+  }
 
 
-function Home({contact}) {
+
+
+
+function Home({contact,blogs}) {
     TitleSection.defaultProps = {
         classDesc: "line-shape line-shape-before",
         classDesInner: "line-bg-right",
     };
+
+
+    
+    
+console.log(blogs);
+
 
 
     return (
@@ -224,8 +240,8 @@ function Home({contact}) {
                     className={`container  align-items-center text-center`}
                     description={"Lasts post"}
                 >
-                    Latest And Greatest <br/>
-                    Post
+                    Latest <br/> News & Blogs
+                    
                 </TitleSection>
                 <BlogSwiper
                     className="dsn-container"
@@ -250,18 +266,7 @@ function Home({contact}) {
             </div>
             {/*End Blog*/}
 
-            {/*========== team Section ========== */}
-            <section className="container section-margin " data-dsn-title="Our Team">
-                <TitleSection
-                    className={` align-items-center text-center`}
-                    description={"Our Team"}
-                >
-                    The Best Team Ever!
-                </TitleSection>
 
-                <Team col={3} colTablet={2}/>
-            </section>
-            {/*========== End team Section ========== */}
 
             {/*========== End brand-client Section ==========*/}
             <section className="container section-margin" data-dsn-title="our clients">

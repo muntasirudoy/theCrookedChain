@@ -43,13 +43,13 @@ const EremiaMenu = ({ hamburger }) => {
   }, [width]); 
   const handleWindowResize=()=>{
     if (window.innerWidth >= 320 && window.innerWidth <= 575) {
-      setWidth("100px")
+      setWidth("130px")
     }else{
       setWidth("138px")
     }
   }
 
-
+const brnadName = "The Crooked Chain"
 
 
 
@@ -57,7 +57,7 @@ const EremiaMenu = ({ hamburger }) => {
 
   return (
     <Navbar hamburger={hamburger} >
-      <Navbar.Brand href={"/"} transitionPage={{ title: brand }}>
+      <Navbar.Brand href={"/"} transitionPage={{ title: brnadName.replace(/ /g, "<br/>")}}>
         <Logo width={width} height="56px" />
       </Navbar.Brand>
 

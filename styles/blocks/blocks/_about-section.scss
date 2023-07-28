@@ -19,14 +19,14 @@
   .title-move {
     @include media_991(min) {
       position: absolute;
-      right: -150px;
+      right: auto;
       top: 0;
     }
   }
 
   .title-block {
     @include media_991(min) {
-      margin-top: 80px;
+      margin-top: 20px;
     }
     @include media_991() {
       &.border-bottom{

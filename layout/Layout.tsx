@@ -1,4 +1,4 @@
-import { ElementType, HTMLProps, useEffect, useRef} from 'react';
+import { ElementType, HTMLProps, useEffect, useRef, useState} from 'react';
 import {dsnCN, scrollTop} from "../hooks/helper";
 import dataAttr from "../hooks/dataAttr";
 import SocialOne from "../components/social/SocialOne";
@@ -29,6 +29,9 @@ function Layout({className, children, tag: Tag = "div", activeScrollbar, options
     const paginateRight = useRef(null);
     const scrollbar = useSelector((state: RootState) => state.scrollbar);
 
+
+  
+    
     useEffect(() => {
         const scrollDiv = document.createElement("div");
         scrollDiv.style.cssText = "width:100px;height:100px;overflow: scroll;position: absolute;top: -9999px;";
@@ -39,7 +42,7 @@ function Layout({className, children, tag: Tag = "div", activeScrollbar, options
     }, []);
 
     useEffect(() => {
-
+        console.log(scrollbar);
         const paginate = document.body.querySelectorAll("[data-dsn-title]");
 
         if (paginate)
@@ -62,14 +65,22 @@ function Layout({className, children, tag: Tag = "div", activeScrollbar, options
                 paginate.forEach(el => el["paginateTarget"]?.remove());
         }
 
+
     }, [scrollbar]);
+
+
+
+
+
 
 
     return (
         <Tag id="main_layout"
              className={dsnCN( 'background-main', className)} {...restProps}>
             <div className={dsnCN("main-content", activeScrollbar && "dsn-main-scrollbar")}>
-                {activeScrollbar ? <MainScrollBar options={optionsScrollbar}><div id="main-content" className="p-relative">{children}</div></MainScrollBar> : <div id="main-content" className="p-relative">{children}</div>}
+                {activeScrollbar ? <MainScrollBar options={optionsScrollbar}>
+                    <div id="main-content" className="p-relative">{children}</div>
+                </MainScrollBar> : <div id="main-content" className="p-relative">{children}</div>}
             </div>
 
             <div className="line-border-style w-100 h-100"/>

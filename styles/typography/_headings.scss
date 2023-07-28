@@ -87,8 +87,9 @@ h6, .h6 {
 
 .section-title {
   position: relative;
-  font-size: 40px;
-  letter-spacing: 2px;
+  font-size: 34px;
+  letter-spacing: 1px;
+  line-height: 1;
 
 
   @include media_768 {

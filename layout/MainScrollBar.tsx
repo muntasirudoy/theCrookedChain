@@ -43,6 +43,8 @@ function MainScrollBar({children, options, ...restProps}: ScrollbarOp) {
     }, [ref.current]);// eslint-disable-line react-hooks/exhaustive-deps
 
 
+
+    
     return (
         <div id="dsn-scrollbar" ref={ref} style={{height: "100vh"}} {...restProps} >
             {children}
